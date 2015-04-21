@@ -90,6 +90,11 @@ class Machine(object):
             time
         :var updated: :py:class:`datetime.datetime` of machine update 
             time
+        :var networks: :py:class:`list` of SDC networks for the machine
+        :var image: identifier for the image for the machine
+        :var package: identifier for the package for the machine
+        :var compute_node: identifier for the compute node for the machine
+        :var tags: py:class:`dict` tags associated with the machine
         """
         self.id = machine_id or data.pop('id')
         self.datacenter = datacenter
@@ -150,6 +155,11 @@ class Machine(object):
         self.boot_script = self.metadata.pop('user-script', None)
         self.created = dt_time(data.get('created'))
         self.updated = dt_time(data.get('updated', data.get('created')))
+        self.image = data.get('image')
+        self.networks = data.get('networks')
+        self.package = data.get('package')
+        self.compute_node = data.get('compute_node')
+        self.tags = data.get('tags')
     
     @property
     def path(self):
