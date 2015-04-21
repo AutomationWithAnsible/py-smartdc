@@ -1,7 +1,6 @@
 from setuptools import setup, find_packages
 import versioneer
 
-versioneer.VCS = 'git'
 versioneer.versionfile_source = 'smartdc/_version.py'
 versioneer.versionfile_build = 'smartdc/_version.py'
 versioneer.tag_prefix = 'v' # tags are like 1.2.0
